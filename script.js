@@ -99,11 +99,11 @@
    ================================================================ */
 (function initRoleCycler() {
   const roles = [
+    'Python Developer',
+    'B.Tech CSE Student',
     'Content Writer',
-    'Blog Writer',
-    'Article Writer',
-    'SEO Content Creator',
-    'Brand Storyteller',
+    'Computer Vision Enthusiast',
+    'Data Analytics Learner',
   ];
   const el = document.getElementById('roleCycle');
   if (!el) return;
