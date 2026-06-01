@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -70,8 +71,8 @@
     <div class="hero-visual reveal">
       <div class="hero-card">
         <div class="card-tag">Featured Project</div>
-        <p class="card-title" id="cms-featured-project">Face Recognition Based Attendance System</p>
-        <div class="card-meta" id="cms-featured-tags">
+        <p class="card-title">Face Recognition Based Attendance System</p>
+        <div class="card-meta">
           <span class="card-badge">Python</span>
           <span class="card-badge">OpenCV</span>
         </div>
@@ -95,6 +96,7 @@
       <div class="about-grid">
         <div class="about-visual reveal">
           <div class="about-img-wrap">
+            <!-- <div class="about-initials"></div> -->
              <div class="about-initials">
                   <img id="cms-about-photo" src="LinkedinProfile.jpeg" alt="Alok Kumar">
               </div>
@@ -112,8 +114,8 @@
         <div class="about-text">
           <div class="section-label reveal">Who I Am</div>
           <h2 class="section-title reveal">Building Solutions with <em>Code & Words</em></h2>
-          <p class="reveal" id="cms-about-para1">I'm <strong>Alok Kumar</strong>, a B.Tech Computer Science student at Bhai Jaita Subharti Engineering College, Meerut (Swami Vivekanand Subharti University), expected to graduate in 2027. I'm from Bettiah, Bihar, and currently based in Meerut, UP.</p>
-          <p class="reveal" id="cms-about-para2">I love building practical software — from face recognition systems to data dashboards — and I pair that with a genuine interest in tech writing and content creation. My goal is to bridge the gap between <strong>technical engineering and clear communication</strong>.</p>
+          <p class="reveal"><span id="cms-about-para1">I'm <strong>Alok Kumar</strong>, a B.Tech Computer Science student at Bhai Jaita Subharti Engineering College, Meerut (Swami Vivekanand Subharti University), expected to graduate in 2027. I'm from Bettiah, Bihar, and currently based in Meerut, UP.</p>
+          <p class="reveal">I love building practical software — from face recognition systems to data dashboards — and I pair that with a genuine interest in tech writing and content creation. My goal is to bridge the gap between <strong>technical engineering and clear communication</strong>.</p>
           <div class="expertise-grid reveal">
             <div class="expertise-item">
               <span class="exp-icon">🐍</span>
@@ -213,11 +215,45 @@
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">My Work</div>
-        <h2 class="section-title">Featured <em>Projects</em></h2>
+        <h2 class="section-title">Featured <em>Project</em></h2>
         <p class="section-subtitle">Real-world projects built with Python and modern tools.</p>
       </div>
       <div id="cms-projects-grid" class="skills-wrapper" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
-        <!-- Projects loaded dynamically from JSON -->
+        <div class="skills-bars reveal">
+          <!-- Big Project Card -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 36px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--gold));"></div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <div>
+                <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 100px;">Individual Project</span>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tool-chip">Python</span>
+                <span class="tool-chip">OpenCV</span>
+                <span class="tool-chip">NumPy</span>
+                <span class="tool-chip">Tkinter</span>
+                <span class="tool-chip">CSV</span>
+              </div>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text);">🎓 Face Recognition Based Attendance System</h3>
+            <p style="margin-bottom: 20px; font-size: 0.97rem;">A real-time face recognition system that automates student/employee attendance tracking using a live camera feed. Built with Python and OpenCV, featuring an intuitive Tkinter GUI for easy interaction and instant CSV-based attendance logging.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px;">
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Problem Solved</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Automates manual attendance — saving time and eliminating proxy attendance</div>
+              </div>
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Key Feature</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Live camera feed with real-time face detection and instant record saving</div>
+              </div>
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Tech Used</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Python + OpenCV for vision, Tkinter for GUI, CSV for data persistence</div>
+              </div>
+            </div>
+            <a href="https://github.com/aloksooryavanshii" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration: none;">View on GitHub →(Coming Soon)</a>
+          </div>
+        </div>
       </div>
       <div class="tools-row reveal" style="margin-top: 40px;">
         <p class="tools-label">Languages & Tools</p>
@@ -236,7 +272,7 @@
     </div>
   </section>
 
-  <!-- ===== CERTIFICATIONS ===== -->
+  <!-- ===== CERTIFICATIONS (replacing Portfolio) ===== -->
   <section class="portfolio section" id="skills">
     <div class="container">
       <div class="section-header reveal">
@@ -245,8 +281,75 @@
         <p class="section-subtitle">NPTEL certifications from IITs and real-world hackathon experience.</p>
       </div>
       <div class="portfolio-grid" id="cms-certifications-grid">
-        <!-- Certifications loaded dynamically from JSON -->
-        <!-- Hire Card always at end -->
+        <!-- Cert 1 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Kharagpur</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Experimental Robotics</h3>
+          <p class="portfolio-excerpt">An online certification course from IIT Kharagpur covering the fundamentals of experimental robotics — sensors, actuators, control systems, and real-world robotic applications.</p>
+          <div class="portfolio-tags">
+            <span>Robotics</span>
+            <span>IIT Kharagpur</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Cert 2 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Roorkee</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Soft Skills</h3>
+          <p class="portfolio-excerpt">A professional development certification from IIT Roorkee covering communication, interpersonal skills, leadership, teamwork, and workplace effectiveness.</p>
+          <div class="portfolio-tags">
+            <span>Communication</span>
+            <span>IIT Roorkee</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Cert 3 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Kharagpur</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Cloud Computing</h3>
+          <p class="portfolio-excerpt">An in-depth cloud computing course from IIT Kharagpur covering cloud architectures, deployment models (IaaS, PaaS, SaaS), virtualization, and distributed systems concepts.</p>
+          <div class="portfolio-tags">
+            <span>Cloud</span>
+            <span>IIT Kharagpur</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Achievement Card -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">Extracurricular</span>
+            <span class="portfolio-read-time">Active</span>
+          </div>
+          <h3 class="portfolio-title">AI Hackathon & Eklavya Club</h3>
+          <p class="portfolio-excerpt">Participated in an AI Hackathon, collaborating on innovative AI-based solution development under time pressure. Also an active member of Eklavya Club with leadership and team coordination roles.</p>
+          <div class="portfolio-tags">
+            <span>AI Hackathon</span>
+            <span>Leadership</span>
+            <span>Eklavya Club</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🚀 Leadership Role</span>
+          </div>
+        </article>
+        <!-- Hire Card -->
         <div class="portfolio-card portfolio-card--hire reveal">
           <div class="hire-content">
             <span class="hire-icon">✦</span>
@@ -492,6 +595,9 @@
     </div>
   </footer>
 
+  <!-- ===== NETLIFY IDENTITY ===== -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <!-- ===== CMS DATA LOADER ===== -->
   <script>
   (async function loadCMSData() {
@@ -501,145 +607,94 @@
       const res = await fetch('/_data/hero.json');
       if (res.ok) {
         const d = await res.json();
-
-        // Name
         const nameEl = document.getElementById('cms-hero-name');
         if (nameEl && d.name) nameEl.textContent = d.name;
-
-        // Tag
         const tagEl = document.getElementById('cms-hero-tag');
-        if (tagEl && d.tag) tagEl.childNodes[0].textContent = d.tag;
-
-        // Bio
+        if (tagEl && d.tag) tagEl.textContent = d.tag;
         const bioEl = document.getElementById('cms-hero-bio');
         if (bioEl && d.bio) bioEl.textContent = d.bio;
-
-        // Roles cycling
         if (d.roles && d.roles.length) {
           window._cmsRoles = d.roles;
           const roleEl = document.getElementById('roleCycle');
           if (roleEl) roleEl.textContent = d.roles[0];
         }
-
-        // Stats
-        if (d.stat_nptel) {
-          const el = document.getElementById('cms-stat-nptel');
-          if (el) { el.dataset.target = d.stat_nptel; }
-        }
-        if (d.stat_year) {
-          const el = document.getElementById('cms-stat-year');
-          if (el) { el.dataset.target = d.stat_year; }
-        }
-        if (d.stat_projects) {
-          const el = document.getElementById('cms-stat-projects');
-          if (el) { el.dataset.target = d.stat_projects; }
-        }
+        if (d.stat_nptel) { const el = document.getElementById('cms-stat-nptel'); if (el) el.dataset.target = d.stat_nptel; }
+        if (d.stat_year)  { const el = document.getElementById('cms-stat-year');  if (el) el.dataset.target = d.stat_year;  }
+        if (d.stat_projects) { const el = document.getElementById('cms-stat-projects'); if (el) el.dataset.target = d.stat_projects; }
       }
-    } catch(e) { console.log('Hero data not found, using defaults'); }
+    } catch(e) {}
 
     // ── ABOUT ─────────────────────────────────────────
     try {
       const res = await fetch('/_data/about.json');
       if (res.ok) {
         const d = await res.json();
-        if (d.photo) {
-          const img = document.getElementById('cms-about-photo');
-          if (img) img.src = d.photo;
-        }
-        if (d.para1) {
-          const el = document.getElementById('cms-about-para1');
-          if (el) el.textContent = d.para1;
-        }
-        if (d.para2) {
-          const el = document.getElementById('cms-about-para2');
-          if (el) el.textContent = d.para2;
-        }
+        if (d.photo) { const img = document.getElementById('cms-about-photo'); if (img) img.src = d.photo; }
+        if (d.para1) { const el = document.getElementById('cms-about-para1'); if (el) el.textContent = d.para1; }
+        if (d.para2) { const el = document.getElementById('cms-about-para2'); if (el) el.textContent = d.para2; }
       }
-    } catch(e) { console.log('About data not found, using defaults'); }
+    } catch(e) {}
+
+    // ── LOAD MANIFEST ─────────────────────────────────
+    let manifest = { projects: [], certifications: [] };
+    try {
+      const mRes = await fetch('/_data/manifest.json');
+      if (mRes.ok) manifest = await mRes.json();
+    } catch(e) {}
 
     // ── PROJECTS ──────────────────────────────────────
     try {
-      const files = ['face-recognition-attendance'];
       const grid = document.getElementById('cms-projects-grid');
-      if (grid) {
+      if (grid && manifest.projects && manifest.projects.length) {
         grid.innerHTML = '';
-        for (const f of files) {
+        for (const f of manifest.projects) {
           try {
-            const res = await fetch(`/_data/projects/${f}.json`);
+            const res = await fetch('/_data/projects/' + f + '.json');
             if (!res.ok) continue;
             const p = await res.json();
-            const tags = (p.tags || []).map(t => `<span class="tool-chip">${t}</span>`).join('');
+            const tags = (p.tags || []).map(t => '<span class="tool-chip">' + t + '</span>').join('');
             const links = [];
-            if (p.github) links.push(`<a href="${p.github}" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">View on GitHub →</a>`);
-            if (p.demo) links.push(`<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-outline" style="text-decoration:none;">Live Demo →</a>`);
-            grid.innerHTML += `
-              <div class="skills-bars reveal">
-                <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:36px;position:relative;overflow:hidden;">
-                  <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));"></div>
-                  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
-                    <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:100px;">Individual Project</span>
-                    <div style="display:flex;gap:8px;flex-wrap:wrap;">${tags}</div>
-                  </div>
-                  <h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text);">🎓 ${p.title}</h3>
-                  <p style="margin-bottom:20px;font-size:0.97rem;">${p.description}</p>
-                  <div style="display:flex;gap:12px;flex-wrap:wrap;">${links.join('') || '<span style="color:var(--text-muted);font-size:0.9rem;">Coming Soon</span>'}</div>
-                </div>
-              </div>`;
+            if (p.github) links.push('<a href="' + p.github + '" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">View on GitHub \u2192</a>');
+            if (p.demo)   links.push('<a href="' + p.demo   + '" target="_blank" rel="noopener" class="btn btn-outline"  style="text-decoration:none;">Live Demo \u2192</a>');
+            grid.innerHTML += '<div class="skills-bars reveal"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:36px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));"></div><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;"><span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:100px;">Individual Project</span><div style="display:flex;gap:8px;flex-wrap:wrap;">' + tags + '</div></div><h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text);">\ud83c\udf93 ' + p.title + '</h3><p style="margin-bottom:20px;font-size:0.97rem;">' + p.description + '</p><div style="display:flex;gap:12px;flex-wrap:wrap;">' + (links.join('') || '<span style="color:var(--text-muted);font-size:0.9rem;">Coming Soon</span>') + '</div></div></div>';
           } catch(e) {}
         }
-        // Also try to load any new projects added via CMS
-        try {
-          const listRes = await fetch('/_data/projects/');
-          // fallback — projects are listed via known filenames
-        } catch(e) {}
       }
-    } catch(e) { console.log('Projects data not found, using defaults'); }
+    } catch(e) {}
 
     // ── CERTIFICATIONS ────────────────────────────────
     try {
-      const certFiles = [
-        'experimental-robotics',
-        'soft-skills',
-        'cloud-computing'
-      ];
       const grid = document.getElementById('cms-certifications-grid');
-      if (grid) {
-        // Remove existing cards but keep hire card
+      if (grid && manifest.certifications && manifest.certifications.length) {
         const hireCard = grid.querySelector('.portfolio-card--hire');
         grid.innerHTML = '';
-
-        for (const f of certFiles) {
+        for (const f of manifest.certifications) {
           try {
-            const res = await fetch(`/_data/certifications/${f}.json`);
+            const res = await fetch('/_data/certifications/' + f + '.json');
             if (!res.ok) continue;
             const c = await res.json();
-            const linkBtn = c.link
-              ? `<a href="${c.link}" target="_blank" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;text-decoration:none;">View Certificate →</a>`
-              : '';
-            grid.innerHTML += `
-              <article class="portfolio-card reveal">
-                <div class="portfolio-card-header">
-                  <span class="portfolio-category">${c.issuer}</span>
-                  <span class="portfolio-read-time">${c.year || 'Certified'}</span>
-                </div>
-                <h3 class="portfolio-title">${c.title}</h3>
-                <div class="portfolio-tags"><span>NPTEL</span><span>${c.issuer.split('—')[0].trim()}</span></div>
-                <div class="portfolio-meta">
-                  <span class="meta-item">🏅 NPTEL Certified</span>
-                  ${linkBtn}
-                </div>
-              </article>`;
+            const linkBtn = c.link ? '<a href="' + c.link + '" target="_blank" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;text-decoration:none;">View Certificate \u2192</a>' : '';
+            const issuerParts = (c.issuer || '').split('—');
+            grid.innerHTML += '<article class="portfolio-card reveal"><div class="portfolio-card-header"><span class="portfolio-category">' + c.issuer + '</span><span class="portfolio-read-time">' + (c.year || 'Certified') + '</span></div><h3 class="portfolio-title">' + c.title + '</h3><div class="portfolio-tags"><span>NPTEL</span><span>' + issuerParts[0].trim() + '</span></div><div class="portfolio-meta"><span class="meta-item">\ud83c\udfc5 NPTEL Certified</span>' + linkBtn + '</div></article>';
           } catch(e) {}
         }
-
-        // Re-add hire card at end
         if (hireCard) grid.appendChild(hireCard);
       }
-    } catch(e) { console.log('Certifications data not found, using defaults'); }
+    } catch(e) {}
 
   })();
   </script>
 
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+
   <script src="script.js"></script>
-</body>
-</html>
+
+
