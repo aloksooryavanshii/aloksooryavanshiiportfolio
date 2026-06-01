@@ -1,0 +1,8 @@
+{
+  "title": "Face Recognition Based Attendance System",
+  "description": "A real-time face recognition system that automates student/employee attendance tracking using a live camera feed. Built with Python and OpenCV, featuring an intuitive Tkinter GUI for easy interaction and instant CSV-based attendance logging.",
+  "tags": ["Python", "OpenCV", "NumPy", "Tkinter", "CSV"],
+  "github": "https://github.com/aloksooryavanshii",
+  "demo": "",
+  "featured": true
+}
