@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+
+  # ── SITE SETTINGS (Hero, About, etc.) ──────────────────────────
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+
+      - name: "hero"
+        label: "🏠 Hero Section"
+        file: "_data/hero.json"
+        fields:
+          - { label: "Your Name", name: "name", widget: "string", default: "Alok Kumar" }
+          - { label: "Status Tag (green dot text)", name: "tag", widget: "string", default: "Open to Internships & Opportunities" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - label: "Roles (cycling text)"
+            name: "roles"
+            widget: "list"
+            field: { label: "Role", name: "role", widget: "string" }
+          - { label: "NPTEL Certifications Count", name: "stat_nptel", widget: "number", default: 3 }
+          - { label: "Expected Graduation Year", name: "stat_year", widget: "number", default: 2027 }
+          - { label: "Projects Built Count", name: "stat_projects", widget: "number", default: 1 }
+
+      - name: "about"
+        label: "👤 About Section"
+        file: "_data/about.json"
+        fields:
+          - { label: "Profile Photo", name: "photo", widget: "image" }
+          - { label: "Paragraph 1", name: "para1", widget: "text" }
+          - { label: "Paragraph 2", name: "para2", widget: "text" }
+
+  # ── PROJECTS ───────────────────────────────────────────────────
+  - name: "projects"
+    label: "🚀 Projects"
+    folder: "_data/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Tech Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "GitHub Link", name: "github", widget: "string", required: false }
+      - { label: "Live Demo Link", name: "demo", widget: "string", required: false }
+      - { label: "Featured Project?", name: "featured", widget: "boolean", default: false }
+
+  # ── CERTIFICATIONS ─────────────────────────────────────────────
+  - name: "certifications"
+    label: "🏆 Certifications"
+    folder: "_data/certifications"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Certification Name", name: "title", widget: "string" }
+      - { label: "Issued By", name: "issuer", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Certificate Link", name: "link", widget: "string", required: false }
+
+  # ── SKILLS ─────────────────────────────────────────────────────
+  - name: "skills"
+    label: "💡 Skills"
+    folder: "_data/skills"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Skill Name", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Icon (emoji)", name: "icon", widget: "string" }
+      - { label: "Proficiency %", name: "percent", widget: "number", value_type: "int", min: 0, max: 100 }
+
+  # ── WRITING / BLOG ─────────────────────────────────────────────
+  - name: "writing"
+    label: "✍️ Writing / Articles"
+    folder: "_data/writing"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Article Title", name: "title", widget: "string" }
+      - { label: "Platform (e.g. Medium, LinkedIn)", name: "platform", widget: "string" }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Article Link", name: "link", widget: "string" }
+      - { label: "Date Published", name: "date", widget: "datetime" }
