@@ -646,7 +646,7 @@
     try {
       const grid = document.getElementById('cms-projects-grid');
       if (grid && manifest.projects && manifest.projects.length) {
-        grid.innerHTML = '';
+        let newHTML = '';
         for (const f of manifest.projects) {
           try {
             const res = await fetch('/_data/projects/' + f + '.json');
@@ -656,9 +656,10 @@
             const links = [];
             if (p.github) links.push('<a href="' + p.github + '" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">View on GitHub \u2192</a>');
             if (p.demo)   links.push('<a href="' + p.demo   + '" target="_blank" rel="noopener" class="btn btn-outline"  style="text-decoration:none;">Live Demo \u2192</a>');
-            grid.innerHTML += '<div class="skills-bars reveal"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:36px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));"></div><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;"><span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:100px;">Individual Project</span><div style="display:flex;gap:8px;flex-wrap:wrap;">' + tags + '</div></div><h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text);">\ud83c\udf93 ' + p.title + '</h3><p style="margin-bottom:20px;font-size:0.97rem;">' + p.description + '</p><div style="display:flex;gap:12px;flex-wrap:wrap;">' + (links.join('') || '<span style="color:var(--text-muted);font-size:0.9rem;">Coming Soon</span>') + '</div></div></div>';
+            newHTML += '<div class="skills-bars reveal"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:36px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));"></div><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;"><span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:100px;">Individual Project</span><div style="display:flex;gap:8px;flex-wrap:wrap;">' + tags + '</div></div><h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text);">\ud83c\udf93 ' + p.title + '</h3><p style="margin-bottom:20px;font-size:0.97rem;">' + p.description + '</p><div style="display:flex;gap:12px;flex-wrap:wrap;">' + (links.join('') || '<span style="color:var(--text-muted);font-size:0.9rem;">Coming Soon</span>') + '</div></div></div>';
           } catch(e) {}
         }
+        if (newHTML) grid.innerHTML = newHTML; // only replace if we got data
       }
     } catch(e) {}
 
@@ -667,7 +668,7 @@
       const grid = document.getElementById('cms-certifications-grid');
       if (grid && manifest.certifications && manifest.certifications.length) {
         const hireCard = grid.querySelector('.portfolio-card--hire');
-        grid.innerHTML = '';
+        let newHTML = '';
         for (const f of manifest.certifications) {
           try {
             const res = await fetch('/_data/certifications/' + f + '.json');
@@ -675,10 +676,13 @@
             const c = await res.json();
             const linkBtn = c.link ? '<a href="' + c.link + '" target="_blank" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;text-decoration:none;">View Certificate \u2192</a>' : '';
             const issuerParts = (c.issuer || '').split('—');
-            grid.innerHTML += '<article class="portfolio-card reveal"><div class="portfolio-card-header"><span class="portfolio-category">' + c.issuer + '</span><span class="portfolio-read-time">' + (c.year || 'Certified') + '</span></div><h3 class="portfolio-title">' + c.title + '</h3><div class="portfolio-tags"><span>NPTEL</span><span>' + issuerParts[0].trim() + '</span></div><div class="portfolio-meta"><span class="meta-item">\ud83c\udfc5 NPTEL Certified</span>' + linkBtn + '</div></article>';
+            newHTML += '<article class="portfolio-card reveal"><div class="portfolio-card-header"><span class="portfolio-category">' + c.issuer + '</span><span class="portfolio-read-time">' + (c.year || 'Certified') + '</span></div><h3 class="portfolio-title">' + c.title + '</h3><div class="portfolio-tags"><span>NPTEL</span><span>' + issuerParts[0].trim() + '</span></div><div class="portfolio-meta"><span class="meta-item">\ud83c\udfc5 NPTEL Certified</span>' + linkBtn + '</div></article>';
           } catch(e) {}
         }
-        if (hireCard) grid.appendChild(hireCard);
+        if (newHTML) {
+          grid.innerHTML = newHTML; // only replace if we got data
+          if (hireCard) grid.appendChild(hireCard);
+        }
       }
     } catch(e) {}
 
