@@ -1,0 +1,6 @@
+[build]
+  command = "node netlify/functions/update-manifest.js"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18"
