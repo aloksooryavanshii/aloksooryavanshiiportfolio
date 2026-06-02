@@ -7,7 +7,7 @@ public_folder: "/images/uploads"
 
 collections:
 
-  # ── SITE SETTINGS (Hero, About, etc.) ──────────────────────────
+  # ── SITE SETTINGS ──────────────────────────────────────────────
   - name: "settings"
     label: "⚙️ Site Settings"
     files:
@@ -15,6 +15,7 @@ collections:
       - name: "hero"
         label: "🏠 Hero Section"
         file: "_data/hero.json"
+        format: json
         fields:
           - { label: "Your Name", name: "name", widget: "string", default: "Alok Kumar" }
           - { label: "Status Tag (green dot text)", name: "tag", widget: "string", default: "Open to Internships & Opportunities" }
@@ -30,6 +31,7 @@ collections:
       - name: "about"
         label: "👤 About Section"
         file: "_data/about.json"
+        format: json
         fields:
           - { label: "Profile Photo", name: "photo", widget: "image" }
           - { label: "Paragraph 1", name: "para1", widget: "text" }
@@ -41,6 +43,8 @@ collections:
     folder: "_data/projects"
     create: true
     slug: "{{slug}}"
+    format: json
+    extension: json
     fields:
       - { label: "Project Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
@@ -58,6 +62,8 @@ collections:
     folder: "_data/certifications"
     create: true
     slug: "{{slug}}"
+    format: json
+    extension: json
     fields:
       - { label: "Certification Name", name: "title", widget: "string" }
       - { label: "Issued By", name: "issuer", widget: "string" }
@@ -70,6 +76,8 @@ collections:
     folder: "_data/skills"
     create: true
     slug: "{{slug}}"
+    format: json
+    extension: json
     fields:
       - { label: "Skill Name", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
@@ -82,6 +90,8 @@ collections:
     folder: "_data/writing"
     create: true
     slug: "{{slug}}"
+    format: json
+    extension: json
     fields:
       - { label: "Article Title", name: "title", widget: "string" }
       - { label: "Platform (e.g. Medium, LinkedIn)", name: "platform", widget: "string" }
