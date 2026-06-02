@@ -1,222 +1,704 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel | Alok Kumar Portfolio</title>
+  <meta name="description" content="Alok Kumar – B.Tech CSE Student, Python Developer & Content Writer from Meerut. Face Recognition, Power BI, and more." />
+  <meta name="keywords" content="Alok Kumar, B.Tech, Python developer, content writer, computer science, Meerut, portfolio" />
+  <meta name="author" content="Alok Kumar" />
+  <meta property="og:title" content="Alok Kumar | Developer & Content Writer" />
+  <meta property="og:description" content="B.Tech CSE student passionate about Python, AI, and content creation." />
+  <meta property="og:type" content="website" />
+  <title>Alok Kumar | Developer & Content Writer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <style>
-    /* ── Google Fonts ── */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-    /* ── Override Netlify CMS root styles ── */
-    #nc-root {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
-    }
-
-    /* ── Sidebar ── */
-    [class*="SidebarContainer"],
-    [class*="sidebar"] {
-      background: #111009 !important;
-      border-right: 1px solid #2a2520 !important;
-    }
-
-    /* Sidebar header / brand */
-    [class*="sidebar"] h1,
-    [class*="sidebar"] [class*="brand"] {
-      font-family: 'Playfair Display', Georgia, serif !important;
-      color: #e07b24 !important;
-      font-size: 1.4rem !important;
-      letter-spacing: 0.04em !important;
-    }
-
-    /* Sidebar nav links */
-    [class*="sidebar"] a,
-    [class*="sidebar"] button,
-    [class*="Nav"] a {
-      color: #a09d96 !important;
-      font-size: 0.9rem !important;
-      font-weight: 500 !important;
-      border-radius: 8px !important;
-      transition: all 0.2s !important;
-    }
-
-    [class*="sidebar"] a:hover,
-    [class*="Nav"] a:hover {
-      color: #e07b24 !important;
-      background: rgba(224, 123, 36, 0.08) !important;
-    }
-
-    /* Active nav item */
-    [class*="sidebar"] a[class*="active"],
-    [class*="Nav"] a[class*="active"] {
-      color: #e07b24 !important;
-      background: rgba(224, 123, 36, 0.12) !important;
-      border-left: 3px solid #e07b24 !important;
-    }
-
-    /* ── Main content area ── */
-    [class*="App"],
-    [class*="MainContainer"],
-    [class*="Page"] {
-      background: #1a1814 !important;
-    }
-
-    /* ── Collection list cards ── */
-    [class*="CardGrid"] > div,
-    [class*="EntryCard"],
-    [class*="card"] {
-      background: #1f1d18 !important;
-      border: 1px solid #2a2520 !important;
-      border-radius: 14px !important;
-      transition: all 0.25s !important;
-      overflow: hidden !important;
-    }
-
-    [class*="EntryCard"]:hover,
-    [class*="card"]:hover {
-      border-color: #e07b24 !important;
-      transform: translateY(-3px) !important;
-      box-shadow: 0 8px 24px rgba(224,123,36,0.12) !important;
-    }
-
-    /* Card titles */
-    [class*="EntryCard"] h2,
-    [class*="EntryCard"] [class*="title"],
-    [class*="card"] h2 {
-      color: #f0ede6 !important;
-      font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: 1.1rem !important;
-    }
-
-    /* ── Top toolbar ── */
-    [class*="Toolbar"],
-    [class*="AppHeader"],
-    [class*="top-bar"] {
-      background: #111009 !important;
-      border-bottom: 1px solid #2a2520 !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3) !important;
-    }
-
-    /* ── Buttons ── */
-    button[class*="primary"],
-    [class*="Button"][class*="primary"],
-    button[class*="Publish"],
-    [class*="publish"] button {
-      background: linear-gradient(135deg, #e07b24, #c8640a) !important;
-      color: #fff !important;
-      border: none !important;
-      border-radius: 8px !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-weight: 600 !important;
-      padding: 10px 22px !important;
-      box-shadow: 0 4px 14px rgba(224,123,36,0.3) !important;
-      transition: all 0.2s !important;
-    }
-
-    button[class*="primary"]:hover,
-    [class*="Button"][class*="primary"]:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 6px 20px rgba(224,123,36,0.4) !important;
-    }
-
-    /* New entry buttons (dark outlined) */
-    button[class*="new"],
-    [class*="NewButton"],
-    [class*="Button"]:not([class*="primary"]) {
-      background: transparent !important;
-      border: 1px solid #2a2520 !important;
-      color: #a09d96 !important;
-      border-radius: 8px !important;
-    }
-
-    /* ── Form fields ── */
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    textarea,
-    select,
-    [class*="TextInput"],
-    [class*="NumberInput"],
-    [class*="Select"] {
-      background: #111009 !important;
-      border: 1px solid #2a2520 !important;
-      border-radius: 8px !important;
-      color: #f0ede6 !important;
-      font-family: 'DM Sans', sans-serif !important;
-      padding: 10px 14px !important;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: #e07b24 !important;
-      outline: none !important;
-      box-shadow: 0 0 0 3px rgba(224,123,36,0.15) !important;
-    }
-
-    /* ── Labels ── */
-    label,
-    [class*="FieldLabel"],
-    [class*="label"] {
-      color: #a09d96 !important;
-      font-size: 0.78rem !important;
-      font-weight: 600 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.08em !important;
-      font-family: 'DM Sans', sans-serif !important;
-    }
-
-    /* ── Page headings ── */
-    [class*="CollectionHeader"] h1,
-    [class*="PageTitle"],
-    h1[class*="heading"] {
-      font-family: 'Playfair Display', Georgia, serif !important;
-      color: #f0ede6 !important;
-      font-size: 1.8rem !important;
-    }
-
-    /* ── Empty state ── */
-    [class*="Empty"],
-    [class*="empty"] {
-      color: #6b6760 !important;
-    }
-
-    /* ── Breadcrumb ── */
-    [class*="Breadcrumb"],
-    [class*="breadcrumb"] {
-      color: #6b6760 !important;
-      font-size: 0.85rem !important;
-    }
-
-    [class*="Breadcrumb"] span[class*="active"],
-    [class*="breadcrumb"] span:last-child {
-      color: #e07b24 !important;
-    }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #111009; }
-    ::-webkit-scrollbar-thumb { background: #2a2520; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #e07b24; }
-
-    /* ── Status badge (Published/Draft) ── */
-    [class*="Published"],
-    [class*="status"][class*="published"] {
-      background: rgba(34,197,94,0.15) !important;
-      color: #22c55e !important;
-      border-radius: 100px !important;
-      padding: 3px 10px !important;
-      font-size: 0.75rem !important;
-      font-weight: 600 !important;
-    }
-
-    /* ── Toggle / switch ── */
-    [class*="Toggle"] [class*="checked"],
-    input[type="checkbox"]:checked {
-      background: #e07b24 !important;
-    }
-  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-</body>
-</html>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">AK<span class="dot">.</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Skills</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#skills">Certifications</a>
+        <a href="#testimonials">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="icon-sun">☀</span>
+          <span class="icon-moon">☽</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-text" aria-hidden="true">CODE</div>
+    <div class="hero-content">
+      <span class="hero-tag reveal" id="cms-hero-tag">Open to Internships & Opportunities</span>
+      <h1 class="hero-name reveal">
+        Hi, I'm <em id="cms-hero-name">Alok Kumar</em>
+      </h1>
+      <p class="hero-role reveal">
+        <span class="role-cycle" id="roleCycle">Python Developer</span>
+      </p>
+      <p class="hero-bio reveal" id="cms-hero-bio">
+        B.Tech CSE student from Meerut with a passion for <strong>Python, Computer Vision, and Data Analytics</strong>. I build real-world projects and create tech content that educates and engages — blending code with words.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#portfolio" class="btn btn-primary">View Projects</a>
+        <a href="Alok_Resumee.pdf" download class="btn btn-outline">Download Resume</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat"><span class="stat-num" id="cms-stat-nptel" data-target="3">0</span><span>+</span><p>NPTEL Certifications</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" id="cms-stat-year" data-target="2027">0</span><span></span><p>Expected Graduation</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" id="cms-stat-projects" data-target="1">0</span><span>+</span><p>Projects Built</p></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-card">
+        <div class="card-tag">Featured Project</div>
+        <p class="card-title">Face Recognition Based Attendance System</p>
+        <div class="card-meta">
+          <span class="card-badge">Python</span>
+          <span class="card-badge">OpenCV</span>
+        </div>
+        <div class="writing-lines">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="floating-pill pill-1">✦ Python Dev</div>
+      <div class="floating-pill pill-2">✦ Content Writer</div>
+      <div class="floating-pill pill-3">✦ Power BI</div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-img-wrap">
+            <!-- <div class="about-initials"></div> -->
+             <div class="about-initials">
+                  <img id="cms-about-photo" src="LinkedinProfile.jpeg" alt="Alok Kumar">
+              </div>
+            <div class="about-ring ring-1"></div>
+            <div class="about-ring ring-2"></div>
+          </div>
+          <div class="about-badge">
+            <span class="badge-icon">💻</span>
+            <div>
+              <strong>CSE Student</strong>
+              <small>B.Tech, Exp. 2027</small>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-label reveal">Who I Am</div>
+          <h2 class="section-title reveal">Building Solutions with <em>Code & Words</em></h2>
+          <p class="reveal"><span id="cms-about-para1">I'm <strong>Alok Kumar</strong>, a B.Tech Computer Science student at Bhai Jaita Subharti Engineering College, Meerut (Swami Vivekanand Subharti University), expected to graduate in 2027. I'm from Bettiah, Bihar, and currently based in Meerut, UP.</p>
+          <p class="reveal">I love building practical software — from face recognition systems to data dashboards — and I pair that with a genuine interest in tech writing and content creation. My goal is to bridge the gap between <strong>technical engineering and clear communication</strong>.</p>
+          <div class="expertise-grid reveal">
+            <div class="expertise-item">
+              <span class="exp-icon">🐍</span>
+              <div><strong>Python Development</strong><small>OpenCV, NumPy, Tkinter, CSV</small></div>
+            </div>
+            <div class="expertise-item">
+              <span class="exp-icon">📊</span>
+              <div><strong>Data & Analytics</strong><small>Power BI, DBMS, MS Office</small></div>
+            </div>
+            <div class="expertise-item">
+              <span class="exp-icon">✍️</span>
+              <div><strong>Content Writing</strong><small>Tech Blogs, Articles, SEO Content</small></div>
+            </div>
+            <div class="expertise-item">
+              <span class="exp-icon">🤝</span>
+              <div><strong>Soft Skills</strong><small>Leadership, Communication, Problem Solving</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS (replacing Services) ===== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What I Know</div>
+        <h2 class="section-title">Skills & <em>Technologies</em></h2>
+        <p class="section-subtitle">A mix of programming, data tools, and communication skills I've developed through projects and coursework.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🐍</div>
+          <h3>Python</h3>
+          <p>My primary language — used in projects, automation scripts, and data processing pipelines.</p>
+          <ul class="service-list">
+            <li>OpenCV & Computer Vision</li>
+            <li>NumPy for data handling</li>
+            <li>Tkinter GUI development</li>
+          </ul>
+          <div class="service-tag">Primary Lang</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">⚙️</div>
+          <h3>C & C++</h3>
+          <p>Core programming languages for DSA, systems thinking, and competitive problem solving.</p>
+          <ul class="service-list">
+            <li>Data Structures & Algorithms</li>
+            <li>Memory management</li>
+            <li>OOP fundamentals</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">📊</div>
+          <h3>Power BI & DBMS</h3>
+          <p>Data visualization and database management for building meaningful insights from raw data.</p>
+          <ul class="service-list">
+            <li>Dashboard creation</li>
+            <li>SQL & relational databases</li>
+            <li>Data modelling basics</li>
+          </ul>
+          <div class="service-tag">Analytics</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">✍️</div>
+          <h3>Content Writing</h3>
+          <p>Tech articles, educational blogs, and SEO-friendly content — especially around CS and student life topics.</p>
+          <ul class="service-list">
+            <li>Tech & educational blogs</li>
+            <li>SEO-aware writing</li>
+            <li>Research-first approach</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🤖</div>
+          <h3>AI & Robotics</h3>
+          <p>Hands-on learning in AI/ML concepts and experimental robotics through NPTEL and hackathons.</p>
+          <ul class="service-list">
+            <li>Face recognition systems</li>
+            <li>AI Hackathon participant</li>
+            <li>NPTEL Robotics certified</li>
+          </ul>
+        </div>
+        <div class="service-card service-card--cta reveal">
+          <p class="cta-question">Want to collaborate?</p>
+          <h3>Let's Connect</h3>
+          <p>Open to internships, freelance content work, and interesting college projects.</p>
+          <a href="#contact" class="btn btn-primary">Get in Touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="skills section" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">My Work</div>
+        <h2 class="section-title">Featured <em>Project</em></h2>
+        <p class="section-subtitle">Real-world projects built with Python and modern tools.</p>
+      </div>
+      <div id="cms-projects-grid" class="skills-wrapper" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+        <div class="skills-bars reveal">
+          <!-- Big Project Card -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 36px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--gold));"></div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <div>
+                <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 100px;">Individual Project</span>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="tool-chip">Python</span>
+                <span class="tool-chip">OpenCV</span>
+                <span class="tool-chip">NumPy</span>
+                <span class="tool-chip">Tkinter</span>
+                <span class="tool-chip">CSV</span>
+              </div>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text);">🎓 Face Recognition Based Attendance System</h3>
+            <p style="margin-bottom: 20px; font-size: 0.97rem;">A real-time face recognition system that automates student/employee attendance tracking using a live camera feed. Built with Python and OpenCV, featuring an intuitive Tkinter GUI for easy interaction and instant CSV-based attendance logging.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px;">
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Problem Solved</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Automates manual attendance — saving time and eliminating proxy attendance</div>
+              </div>
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Key Feature</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Live camera feed with real-time face detection and instant record saving</div>
+              </div>
+              <div style="background: var(--bg-alt); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px;">Tech Used</div>
+                <div style="font-size: 0.88rem; color: var(--text);">Python + OpenCV for vision, Tkinter for GUI, CSV for data persistence</div>
+              </div>
+            </div>
+            <a href="https://github.com/aloksooryavanshii" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration: none;">View on GitHub →(Coming Soon)</a>
+          </div>
+        </div>
+      </div>
+      <div class="tools-row reveal" style="margin-top: 40px;">
+        <p class="tools-label">Languages & Tools</p>
+        <div class="tools-list">
+          <span class="tool-chip">Python</span>
+          <span class="tool-chip">C</span>
+          <span class="tool-chip">C++</span>
+          <span class="tool-chip">OpenCV</span>
+          <span class="tool-chip">NumPy</span>
+          <span class="tool-chip">Tkinter</span>
+          <span class="tool-chip">Power BI</span>
+          <span class="tool-chip">MS Office</span>
+          <span class="tool-chip">Git & GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS (replacing Portfolio) ===== -->
+  <section class="portfolio section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Credentials</div>
+        <h2 class="section-title">Certifications & <em>Achievements</em></h2>
+        <p class="section-subtitle">NPTEL certifications from IITs and real-world hackathon experience.</p>
+      </div>
+      <div class="portfolio-grid" id="cms-certifications-grid">
+        <!-- Cert 1 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Kharagpur</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Experimental Robotics</h3>
+          <p class="portfolio-excerpt">An online certification course from IIT Kharagpur covering the fundamentals of experimental robotics — sensors, actuators, control systems, and real-world robotic applications.</p>
+          <div class="portfolio-tags">
+            <span>Robotics</span>
+            <span>IIT Kharagpur</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Cert 2 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Roorkee</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Soft Skills</h3>
+          <p class="portfolio-excerpt">A professional development certification from IIT Roorkee covering communication, interpersonal skills, leadership, teamwork, and workplace effectiveness.</p>
+          <div class="portfolio-tags">
+            <span>Communication</span>
+            <span>IIT Roorkee</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Cert 3 -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">NPTEL — IIT Kharagpur</span>
+            <span class="portfolio-read-time">Certified</span>
+          </div>
+          <h3 class="portfolio-title">Cloud Computing</h3>
+          <p class="portfolio-excerpt">An in-depth cloud computing course from IIT Kharagpur covering cloud architectures, deployment models (IaaS, PaaS, SaaS), virtualization, and distributed systems concepts.</p>
+          <div class="portfolio-tags">
+            <span>Cloud</span>
+            <span>IIT Kharagpur</span>
+            <span>NPTEL</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🏅 NPTEL Certified</span>
+          </div>
+        </article>
+        <!-- Achievement Card -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-card-header">
+            <span class="portfolio-category">Extracurricular</span>
+            <span class="portfolio-read-time">Active</span>
+          </div>
+          <h3 class="portfolio-title">AI Hackathon & Eklavya Club</h3>
+          <p class="portfolio-excerpt">Participated in an AI Hackathon, collaborating on innovative AI-based solution development under time pressure. Also an active member of Eklavya Club with leadership and team coordination roles.</p>
+          <div class="portfolio-tags">
+            <span>AI Hackathon</span>
+            <span>Leadership</span>
+            <span>Eklavya Club</span>
+          </div>
+          <div class="portfolio-meta">
+            <span class="meta-item">🚀 Leadership Role</span>
+          </div>
+        </article>
+        <!-- Hire Card -->
+        <div class="portfolio-card portfolio-card--hire reveal">
+          <div class="hire-content">
+            <span class="hire-icon">✦</span>
+            <h3>Open to Opportunities</h3>
+            <p>Looking for internships in Software Development, Testing, or Data Analytics.</p>
+            <a href="#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WRITING SAMPLES (replacing Testimonials) ===== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Content Portfolio</div>
+        <h2 class="section-title">Sample <em>Writing Work</em></h2>
+      </div>
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>A comprehensive guide ranking the most impactful AI tools for students — covering writing assistants, study planners, and code helpers. Written for a student audience with SEO keywords and practical recommendations.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">✍</div>
+              <div>
+                <strong>Top 10 AI Tools for Students in 2026</strong>
+                <small>Tech Blog · SEO Article · 8 min read</small>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>A step-by-step Python learning roadmap for absolute beginners — from installing Python to building real projects. Written from experience as a CS student, making technical content relatable and actionable.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">🐍</div>
+              <div>
+                <strong>Python Roadmap for Beginners</strong>
+                <small>Programming Guide · Career Content · 10 min read</small>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>An in-depth BPSC exam preparation guide covering syllabus, books, and study schedules for Bihar aspirants. Research-heavy content targeting high-intent search queries from exam preparation seekers in Bihar.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">📚</div>
+              <div>
+                <strong>BPSC Exam 2026: Complete Strategy Guide</strong>
+                <small>Education Blog · Long-form · 12 min read</small>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>Science-backed productivity tips specifically for engineering and college students — Pomodoro method, digital tools, time-blocking strategies, and mindset shifts tailored to the student experience.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">⏱</div>
+              <div>
+                <strong>Productivity Tips for Students</strong>
+                <small>Lifestyle Blog · Evergreen Content · 6 min read</small>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls reveal">
+        <button class="slider-btn" id="prevBtn" aria-label="Previous">←</button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="nextBtn" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESUME ===== -->
+  <section class="resume section" id="resume">
+    <div class="container">
+      <div class="resume-inner reveal">
+        <div class="resume-text">
+          <div class="section-label">Career Profile</div>
+          <h2 class="section-title">Download My <em>Resume</em></h2>
+          <p>A complete overview of my education, technical skills, project work, certifications, and achievements — all in one document.</p>
+          <ul class="resume-highlights">
+            <li>✦ B.Tech CSE — Subharti University, Meerut (Expected 2027)</li>
+            <li>✦ Python, C, C++ | Power BI | OpenCV | Tkinter</li>
+            <li>✦ 3 NPTEL Certifications from IIT Kharagpur & IIT Roorkee</li>
+            <li>✦ AI Hackathon Participant | Eklavya Club Leader</li>
+          </ul>
+          <a href="Alok_Resumee.pdf" download class="btn btn-primary resume-btn">
+            <span class="download-icon">⬇</span> Download Resume (PDF)
+          </a>
+        </div>
+        <div class="resume-visual">
+          <div class="resume-doc">
+            <div class="doc-header">
+              <div class="doc-avatar">AK</div>
+              <div>
+                <strong>Alok Kumar</strong>
+                <small>B.Tech CSE Student</small>
+              </div>
+            </div>
+            <div class="doc-line long"></div>
+            <div class="doc-line medium"></div>
+            <div class="doc-section-label">Skills</div>
+            <div class="doc-line long"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line medium"></div>
+            <div class="doc-section-label">Certifications</div>
+            <div class="doc-tags">
+              <span>Python</span><span>OpenCV</span><span>Power BI</span>
+            </div>
+            <div class="doc-stamp">✦ PDF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Let's <em>Connect</em></h2>
+        <p class="section-subtitle">Looking for internship opportunities, collaboration on projects, or freelance content work? Reach out — I'll respond within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:aloksooryavanshi@gmail.com">aloksooryavanshi@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+917319605430">+91 73196 05430</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/aloksooryavanshii/" target="_blank" rel="noopener">linkedin.com/in/aloksooryavanshii</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </div>
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com/aloksooryavanshii" target="_blank" rel="noopener">github.com/aloksooryavanshii</a>
+            </div>
+          </div>
+          <div class="contact-availability">
+            <span class="avail-dot"></span>
+            <span>Open to internships & freelance work</span>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject">Purpose</label>
+            <select id="subject" name="subject">
+              <option value="">Select a purpose...</option>
+              <option>Internship Opportunity</option>
+              <option>Freelance Content Writing</option>
+              <option>Project Collaboration</option>
+              <option>General Inquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity or project..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <span id="submitText">Send Message ✦</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ Thanks for reaching out! I'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo">AK<span class="dot">.</span></span>
+          <p>B.Tech CSE Student · Python Developer · Content Writer</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Skills</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="mailto:aloksooryavanshi@gmail.com" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/aloksooryavanshii/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/aloksooryavanshii" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Alok Kumar · West Champaran, Bihar</p>
+        <a href="#home" class="back-to-top" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== NETLIFY IDENTITY ===== -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- ===== CMS DATA LOADER ===== -->
+  <script>
+  (async function loadCMSData() {
+
+    // ── HERO ──────────────────────────────────────────
+    try {
+      const res = await fetch('/_data/hero.json');
+      if (res.ok) {
+        const d = await res.json();
+        const nameEl = document.getElementById('cms-hero-name');
+        if (nameEl && d.name) nameEl.textContent = d.name;
+        const tagEl = document.getElementById('cms-hero-tag');
+        if (tagEl && d.tag) tagEl.textContent = d.tag;
+        const bioEl = document.getElementById('cms-hero-bio');
+        if (bioEl && d.bio) bioEl.textContent = d.bio;
+        if (d.roles && d.roles.length) {
+          window._cmsRoles = d.roles;
+          const roleEl = document.getElementById('roleCycle');
+          if (roleEl) roleEl.textContent = d.roles[0];
+        }
+        if (d.stat_nptel) { const el = document.getElementById('cms-stat-nptel'); if (el) el.dataset.target = d.stat_nptel; }
+        if (d.stat_year)  { const el = document.getElementById('cms-stat-year');  if (el) el.dataset.target = d.stat_year;  }
+        if (d.stat_projects) { const el = document.getElementById('cms-stat-projects'); if (el) el.dataset.target = d.stat_projects; }
+      }
+    } catch(e) {}
+
+    // ── ABOUT ─────────────────────────────────────────
+    try {
+      const res = await fetch('/_data/about.json');
+      if (res.ok) {
+        const d = await res.json();
+        if (d.photo) { const img = document.getElementById('cms-about-photo'); if (img) img.src = d.photo; }
+        if (d.para1) { const el = document.getElementById('cms-about-para1'); if (el) el.textContent = d.para1; }
+        if (d.para2) { const el = document.getElementById('cms-about-para2'); if (el) el.textContent = d.para2; }
+      }
+    } catch(e) {}
+
+    // ── LOAD MANIFEST ─────────────────────────────────
+    let manifest = { projects: [], certifications: [] };
+    try {
+      const mRes = await fetch('/_data/manifest.json');
+      if (mRes.ok) manifest = await mRes.json();
+    } catch(e) {}
+
+    // ── PROJECTS ──────────────────────────────────────
+    try {
+      const grid = document.getElementById('cms-projects-grid');
+      if (grid && manifest.projects && manifest.projects.length) {
+        let newHTML = '';
+        for (const f of manifest.projects) {
+          try {
+            const res = await fetch('/_data/projects/' + f + '.json');
+            if (!res.ok) continue;
+            const p = await res.json();
+            const tags = (p.tags || []).map(t => '<span class="tool-chip">' + t + '</span>').join('');
+            const links = [];
+            if (p.github) links.push('<a href="' + p.github + '" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;">View on GitHub \u2192</a>');
+            if (p.demo)   links.push('<a href="' + p.demo   + '" target="_blank" rel="noopener" class="btn btn-outline"  style="text-decoration:none;">Live Demo \u2192</a>');
+            newHTML += '<div class="skills-bars reveal"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:36px;position:relative;overflow:hidden;"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));"></div><div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;"><span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 12px;border-radius:100px;">Individual Project</span><div style="display:flex;gap:8px;flex-wrap:wrap;">' + tags + '</div></div><h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text);">\ud83c\udf93 ' + p.title + '</h3><p style="margin-bottom:20px;font-size:0.97rem;">' + p.description + '</p><div style="display:flex;gap:12px;flex-wrap:wrap;">' + (links.join('') || '<span style="color:var(--text-muted);font-size:0.9rem;">Coming Soon</span>') + '</div></div></div>';
+          } catch(e) {}
+        }
+        if (newHTML) grid.innerHTML = newHTML; // only replace if we got data
+      }
+    } catch(e) {}
+
+    // ── CERTIFICATIONS ────────────────────────────────
+    try {
+      const grid = document.getElementById('cms-certifications-grid');
+      if (grid && manifest.certifications && manifest.certifications.length) {
+        const hireCard = grid.querySelector('.portfolio-card--hire');
+        let newHTML = '';
+        for (const f of manifest.certifications) {
+          try {
+            const res = await fetch('/_data/certifications/' + f + '.json');
+            if (!res.ok) continue;
+            const c = await res.json();
+            const linkBtn = c.link ? '<a href="' + c.link + '" target="_blank" class="btn btn-outline" style="font-size:0.8rem;padding:6px 14px;text-decoration:none;">View Certificate \u2192</a>' : '';
+            const issuerParts = (c.issuer || '').split('—');
+            newHTML += '<article class="portfolio-card reveal"><div class="portfolio-card-header"><span class="portfolio-category">' + c.issuer + '</span><span class="portfolio-read-time">' + (c.year || 'Certified') + '</span></div><h3 class="portfolio-title">' + c.title + '</h3><div class="portfolio-tags"><span>NPTEL</span><span>' + issuerParts[0].trim() + '</span></div><div class="portfolio-meta"><span class="meta-item">\ud83c\udfc5 NPTEL Certified</span>' + linkBtn + '</div></article>';
+          } catch(e) {}
+        }
+        if (newHTML) {
+          grid.innerHTML = newHTML; // only replace if we got data
+          if (hireCard) grid.appendChild(hireCard);
+        }
+      }
+    } catch(e) {}
+
+  })();
+  </script>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+
+  <script src="script.js"></script>
+
+
