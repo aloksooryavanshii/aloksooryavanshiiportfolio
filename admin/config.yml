@@ -1,13 +1,14 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: aloksooryavanshii/aloksooryavanshiiportfolio
   branch: main
+  base_url: https://aloksooryavanshiiportfolio.vercel.app
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
 
-  # ── SITE SETTINGS ──────────────────────────────────────────────
   - name: "settings"
     label: "⚙️ Site Settings"
     files:
@@ -17,16 +18,16 @@ collections:
         file: "_data/hero.json"
         format: json
         fields:
-          - { label: "Your Name", name: "name", widget: "string", default: "Alok Kumar" }
-          - { label: "Status Tag (green dot text)", name: "tag", widget: "string", default: "Open to Internships & Opportunities" }
+          - { label: "Your Name", name: "name", widget: "string" }
+          - { label: "Status Tag", name: "tag", widget: "string" }
           - { label: "Bio", name: "bio", widget: "text" }
           - label: "Roles (cycling text)"
             name: "roles"
             widget: "list"
             field: { label: "Role", name: "role", widget: "string" }
-          - { label: "NPTEL Certifications Count", name: "stat_nptel", widget: "number", default: 3 }
-          - { label: "Expected Graduation Year", name: "stat_year", widget: "number", default: 2027 }
-          - { label: "Projects Built Count", name: "stat_projects", widget: "number", default: 1 }
+          - { label: "NPTEL Certifications Count", name: "stat_nptel", widget: "number" }
+          - { label: "Expected Graduation Year", name: "stat_year", widget: "number" }
+          - { label: "Projects Built Count", name: "stat_projects", widget: "number" }
 
       - name: "about"
         label: "👤 About Section"
@@ -37,7 +38,6 @@ collections:
           - { label: "Paragraph 1", name: "para1", widget: "text" }
           - { label: "Paragraph 2", name: "para2", widget: "text" }
 
-  # ── PROJECTS ───────────────────────────────────────────────────
   - name: "projects"
     label: "🚀 Projects"
     folder: "_data/projects"
@@ -56,7 +56,6 @@ collections:
       - { label: "Live Demo Link", name: "demo", widget: "string", required: false }
       - { label: "Featured Project?", name: "featured", widget: "boolean", default: false }
 
-  # ── CERTIFICATIONS ─────────────────────────────────────────────
   - name: "certifications"
     label: "🏆 Certifications"
     folder: "_data/certifications"
@@ -70,21 +69,6 @@ collections:
       - { label: "Year", name: "year", widget: "string" }
       - { label: "Certificate Link", name: "link", widget: "string", required: false }
 
-  # ── SKILLS ─────────────────────────────────────────────────────
-  - name: "skills"
-    label: "💡 Skills"
-    folder: "_data/skills"
-    create: true
-    slug: "{{slug}}"
-    format: json
-    extension: json
-    fields:
-      - { label: "Skill Name", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Icon (emoji)", name: "icon", widget: "string" }
-      - { label: "Proficiency %", name: "percent", widget: "number", value_type: "int", min: 0, max: 100 }
-
-  # ── WRITING / BLOG ─────────────────────────────────────────────
   - name: "writing"
     label: "✍️ Writing / Articles"
     folder: "_data/writing"
@@ -94,7 +78,7 @@ collections:
     extension: json
     fields:
       - { label: "Article Title", name: "title", widget: "string" }
-      - { label: "Platform (e.g. Medium, LinkedIn)", name: "platform", widget: "string" }
+      - { label: "Platform", name: "platform", widget: "string" }
       - { label: "Short Description", name: "description", widget: "text" }
       - { label: "Article Link", name: "link", widget: "string" }
       - { label: "Date Published", name: "date", widget: "datetime" }
