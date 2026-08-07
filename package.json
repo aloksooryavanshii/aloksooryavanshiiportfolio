@@ -1,0 +1,7 @@
+{
+  "name": "alok-portfolio",
+  "version": "1.0.0",
+  "dependencies": {
+    "@octokit/auth-oauth-app": "^7.0.0"
+  }
+}
