@@ -2,17 +2,15 @@ backend:
   name: github
   repo: aloksooryavanshii/aloksooryavanshiiportfolio
   branch: main
-  base_url: https://aloksooryavanshiiportfolio.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-
   - name: "settings"
     label: "⚙️ Site Settings"
     files:
-
       - name: "hero"
         label: "🏠 Hero Section"
         file: "_data/hero.json"
